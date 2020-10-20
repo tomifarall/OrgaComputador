@@ -8,7 +8,6 @@
 
 #define SUCCESS 0
 #define ERROR -1
-#define FILE_EOF 1;
 
 
 /* *****************************************************************
@@ -36,9 +35,8 @@ int file_reader_get_bytes(file_reader_t* self, char* buffer, int chunk) {
     fseek(file, self->total_bytes_read, SEEK_SET);
     for (size_t i = 0; i < chunk; i++) {
         read_result = fgetc(file);
-        //fputc(read_result, stdout);
         if (read_result == EOF)
-            return FILE_EOF;
+            return SUCCESS;
         buffer[i] = read_result;
     }
     buffer[chunk] = '\0';

@@ -20,7 +20,8 @@ int main()
 	fo = fopen("salida.txt","wt");
 
 	file_reader_init(&file_reader, "quijote.txt");
-	while (file_reader_get_bytes(&file_reader, src, LEN_SRC) == SUCCESS){
+	while (!(file_reader_end_of_file(&file_reader))){
+		file_reader_get_bytes(&file_reader, src, LEN_SRC);
 		encode(src, dest);
 		fputs(dest, fo);
 	}
