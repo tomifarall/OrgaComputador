@@ -39,13 +39,11 @@ int b64_encode(unsigned char *src, unsigned char *dest){
 
 
 int base_64_encoder_init(base_64_encoder_t* self, char *file_to_encode, char *out_file){
-	if ((self == NULL) | (file_to_encode == NULL) | (out_file == NULL)){
-		return ERROR;
-	}
+	if (!self) return ERROR;
 	if (file_reader_init(&(self->file_reader), file_to_encode) != SUCCESS) {
 		return ERROR;
 	}
-	self->out_file = out_file ? fopen(out_file, "wt") : stdout;
+	self->out_file = out_file != NULL ? fopen(out_file, "wt") : stdout;
 	if (!self->out_file) {
 		file_reader_destroy(&(self->file_reader));
 		return ERROR;

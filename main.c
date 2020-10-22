@@ -36,8 +36,8 @@ int main(int argc, char **argv){
         {"help", no_argument, 0,'h'},
         {"version", no_argument, 0, 'V'},
     };
-	char* input_file;
-	char* output_file;
+	char* input_file = NULL;
+	char* output_file = NULL;
 	int option_index = 0;
 	bool decode = false;
 	int option;
@@ -63,17 +63,10 @@ int main(int argc, char **argv){
 				return ERROR;
         }
     }
-    // if (!input_file) {
-    //     input_file = "stdin";
-    // }
-    // if (!output_file) {
-    // 	printf("NO HAY OUTPUT FILE\n");
-    //     output_file = "stdout";
-    // }
     bool error = false;
 	if (decode){
 		base_64_decoder_t decoder;
-		if (base_64_decoder_init(&decoder, input_file, output_file)==ERROR){
+		if (base_64_decoder_init(&decoder, input_file, output_file) == ERROR){
 			fprintf(stderr, "%s \n", "Error initiating decoder");
 			return ERROR;
 		}

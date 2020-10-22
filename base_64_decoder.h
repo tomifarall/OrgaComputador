@@ -22,4 +22,4 @@ int base_64_decoder_decode(base_64_decoder_t* self);
 
 int base_64_decoder_destroy(base_64_decoder_t* self);
 
-#endif // BASE_64_DECODER_H
+#endif
