@@ -49,7 +49,7 @@ int b64_decode(const unsigned char *src, unsigned char *out, size_t outlen) {
  * *****************************************************************/
 
 int base_64_decoder_init(base_64_decoder_t* self, char* file_to_decode, char* output_file) {
-    if (!self || !file_to_decode || !output_file ) return ERROR;
+    if (!self) return ERROR;
     if (file_reader_init(&self->file_reader, file_to_decode) != SUCCESS) {
         return ERROR;
 	}

@@ -22,6 +22,8 @@ void display_help(){
 	fprintf(stdout, "%s \n", "-o, --output Path to output file.");
 	fprintf(stdout, "%s \n", "-i, --input Path to input file.");
 	fprintf(stdout, "%s \n", "-d, --decode Decode a base64-encoded file.");
+	fprintf(stdout, "%s\n \n","Examples:");
+	fprintf(stdout, "%s\n", "     tp0 -i input.txt -o output.txt");
 }
 
 int main(int argc, char **argv){ 
