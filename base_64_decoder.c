@@ -117,16 +117,16 @@ int base_64_decoder_destroy(base_64_decoder_t* self) {
 
 
 
-int main(int argc, char const *argv[])
-{
+// int main(int argc, char const *argv[])
+// {
 
-    base_64_decoder_t base_64_decoder;
+//     base_64_decoder_t base_64_decoder;
 
-    base_64_decoder_init(&base_64_decoder, "test.txt", "output.txt");
+//     base_64_decoder_init(&base_64_decoder, "test.txt", "output.txt");
 
-    base_64_decoder_decode(&base_64_decoder);
+//     base_64_decoder_decode(&base_64_decoder);
 
-    base_64_decoder_destroy(&base_64_decoder);
+//     base_64_decoder_destroy(&base_64_decoder);
 
-    return 0;
-}
+//     return 0;
+// }

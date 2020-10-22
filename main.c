@@ -7,6 +7,7 @@
 #include "base_64_encoder.h"
 #include "base_64_decoder.h"
 
+
 #define SUCCESS 0
 #define ERROR 1
 
@@ -17,11 +18,11 @@ int main(int argc, char const *argv[]){
 		return ERROR;
 	}else{
 		if (argc == 2){
-			if (argv[1] == "-V"){
+			if (strcmp(argv[1],"-V") == 0){
 				fprintf(stdout,"%s \n", "Version 1.2");
 				return SUCCESS;
 			}
-			if (argv[1] == "-h"){
+			if (strcmp(argv[1],"-h") == 0){
 				fprintf(stdout, "%s \n", "Usage:");
 				fprintf(stdout, "%s \n", "tp0 -h");
 				fprintf(stdout, "%s \n", "tp0 -V");
@@ -41,15 +42,15 @@ int main(int argc, char const *argv[]){
 		bool decode = false;
 		bool error = false;
 		int offset = 0;
-		if (argv[1] == "-d"){
+		if (strcmp(argv[1],"-d") == 0){
 			decode = true;
 			offset = 1;
 		}
-		if (argv[1 + offset] == "-i"){
+		if (strcmp(argv[1 + offset],"-i") == 0){
 			input_file = argv[2 + offset];
 			output_file = argv[4 + offset];
 		}
-		else if (argv[1 + offset] == "-o"){
+		else if (strcmp(argv[1 + offset],"-o") == 0){
 			input_file = NULL;
 			output_file = argv[2 + offset];
 		}else{
@@ -58,7 +59,7 @@ int main(int argc, char const *argv[]){
 		}
 		if (decode){
 			base_64_decoder_t decoder;
-			if (base_64_decoder_init(&decoder, input_file)==ERROR){  //falta que reciba el output
+			if (base_64_decoder_init(&decoder, input_file, output_file)==ERROR){
 				fprintf(stderr, "%s \n", "Error initiating decoder");
 				return ERROR;
 			}

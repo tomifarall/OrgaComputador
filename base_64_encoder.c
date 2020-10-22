@@ -1,5 +1,5 @@
-#ifndef BASE_64_encoder_H
-#define BASE_64_encoder_H
+// #ifndef BASE_64_encoder_H
+// #define BASE_64_encoder_H
 
 #include "base_64_encoder.h"
 
@@ -71,7 +71,7 @@ int base_64_encoder_encode(base_64_encoder_t* self){
 					self->dest[i] = '=';
 				}
 			}
-			fputs(self->dest, self->out_file);
+			fputs((char *)self->dest, self->out_file);
 		}
 	}
 	return SUCCESS;
@@ -87,17 +87,17 @@ int base_64_encoder_destroy(base_64_encoder_t* self){
 	return SUCCESS;
 }
 
-int main(int argc, char const *argv[])
-{
-    base_64_encoder_t base_64_encoder;
+// int main(int argc, char const *argv[])
+// {
+//     base_64_encoder_t base_64_encoder;
 
-    base_64_encoder_init(&base_64_encoder, "quijote.txt", "salida.txt");
+//     base_64_encoder_init(&base_64_encoder, "quijote.txt", "salida.txt");
 
-    base_64_encoder_encode(&base_64_encoder);
+//     base_64_encoder_encode(&base_64_encoder);
 
-    base_64_encoder_destroy(&base_64_encoder);
+//     base_64_encoder_destroy(&base_64_encoder);
 
-    return 0;
-}
+//     return 0;
+// }
 
-#endif
+// #endif

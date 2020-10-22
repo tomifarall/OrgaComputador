@@ -1,5 +1,5 @@
-#ifndef BASE_64_DECODER_H
-#define BASE_64_DECODER_H
+#ifndef BASE_64_ENCODER_H
+#define BASE_64_ENCODER_H
 
 #include <string.h>
 #include <stdio.h>
@@ -21,7 +21,7 @@ typedef struct{
 
 int base_64_encoder_init(base_64_encoder_t* self, char *file_to_encode, char *out_file);
 
-int base_64_encoder_decode(base_64_encoder_t* self);
+int base_64_encoder_encode(base_64_encoder_t* self);
 
 int base_64_encoder_destroy(base_64_encoder_t* self);
 
