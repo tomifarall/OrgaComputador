@@ -70,6 +70,7 @@ int base_64_encoder_encode(base_64_encoder_t* self){
 			fputs((char *)self->dest, self->out_file);
 		}
 	}
+	fputs("\n", self->out_file);
 	return SUCCESS;
 }
 

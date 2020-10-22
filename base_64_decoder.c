@@ -100,6 +100,7 @@ int base_64_decoder_decode(base_64_decoder_t* self) {
 			fputs((char *) self->bytes_decoded, self->output_file);
 		}
     }
+    fputs("\n", self->output_file);
     return SUCCESS;
 }
 
