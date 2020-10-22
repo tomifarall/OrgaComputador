@@ -1,6 +1,3 @@
-// #ifndef BASE_64_encoder_H
-// #define BASE_64_encoder_H
-
 #include "base_64_encoder.h"
 
 #include <string.h>
@@ -42,8 +39,9 @@ int b64_encode(unsigned char *src, unsigned char *dest){
 
 
 int base_64_encoder_init(base_64_encoder_t* self, char *file_to_encode, char *out_file){
-	if ((self == NULL) | (file_to_encode == NULL) | (out_file == NULL))
+	if ((self == NULL) | (file_to_encode == NULL) | (out_file == NULL)){
 		return ERROR;
+	}
 	if (file_reader_init(&(self->file_reader), file_to_encode) != SUCCESS) {
 		return ERROR;
 	}
@@ -86,18 +84,3 @@ int base_64_encoder_destroy(base_64_encoder_t* self){
 	}
 	return SUCCESS;
 }
-
-// int main(int argc, char const *argv[])
-// {
-//     base_64_encoder_t base_64_encoder;
-
-//     base_64_encoder_init(&base_64_encoder, "quijote.txt", "salida.txt");
-
-//     base_64_encoder_encode(&base_64_encoder);
-
-//     base_64_encoder_destroy(&base_64_encoder);
-
-//     return 0;
-// }
-
-// #endif

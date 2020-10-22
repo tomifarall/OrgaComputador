@@ -18,8 +18,10 @@ int file_reader_init(file_reader_t* self, const char* file_name) {
         self->file = stdin;
     if (!self->file) return ERROR;
     self->total_bytes_read = 0;
-    fseek(self->file, 0, SEEK_END);
-    self->file_size = ftell(self->file); 
+    if (!(self->file == stdin)){
+        fseek(self->file, 0, SEEK_END);
+        self->file_size = ftell(self->file);
+    }
     return SUCCESS;
 }
 
