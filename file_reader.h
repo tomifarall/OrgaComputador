@@ -6,6 +6,11 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
+#define SUCCESS 0
+#define ERROR -1
+#define FILE_EOF -2
+
+
 typedef struct file_reader {
     FILE* file; 
     int file_size;
@@ -14,18 +19,14 @@ typedef struct file_reader {
 
 
 // Inicializa el file reader. Recibe un nombre de archivo del cual
-// leera. En caso de que "file_name" sea nulo se lee la entrada 
-// standar
+// leera. En caso de que "file_name" sea nulo se lee de stdin
 
 int file_reader_init(file_reader_t* self, const char* file_name);
 
 // Lee el archivo de a chunks de bytes. Estos los storea en buffer.
 
-int file_reader_get_bytes(file_reader_t* self, char* buffer, int chunk);
+int file_reader_get_bytes(file_reader_t* self, unsigned char* buffer, int chunk, int* bytes_read);
 
-// Nos indica si el archivo leido esta en EOF.
-
-int file_reader_end_of_file(file_reader_t* self);
 
 // Destruye al file reader, liberando sus recursos.
 int file_reader_destroy(file_reader_t* self);

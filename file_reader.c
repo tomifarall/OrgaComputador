@@ -6,11 +6,6 @@
 
 #include "file_reader.h"
 
-#define SUCCESS 0
-#define ERROR -1
-#define FILE_EOF -2
-
-
 /* *****************************************************************
  *                   FILE READER FUNCTIONS                         *
  * *****************************************************************/  
@@ -28,7 +23,7 @@ int file_reader_init(file_reader_t* self, const char* file_name) {
     return SUCCESS;
 }
 
-int file_reader_get_bytes(file_reader_t* self, char* buffer, int chunk, int* bytes_read) {
+int file_reader_get_bytes(file_reader_t* self, unsigned char* buffer, int chunk, int* bytes_read) {
     if (!self) return ERROR;
     *bytes_read = 0;
     FILE * file = self->file;
@@ -41,9 +36,9 @@ int file_reader_get_bytes(file_reader_t* self, char* buffer, int chunk, int* byt
             return FILE_EOF;
         buffer[i] = read_result;
         (*bytes_read)++;
+        self->total_bytes_read++;
     }
     buffer[chunk] = '\0';
-    self->total_bytes_read += chunk;
     return SUCCESS;
 }
 
@@ -52,12 +47,3 @@ int file_reader_destroy(file_reader_t* self)  {
     fclose(self->file);
     return SUCCESS;
 }
-
-// int file_reader_end_of_file(file_reader_t* self) {
-//     if (!self) return ERROR;
-//     if (self->file_size = -1) {
-
-//     } 
-//     return self->total_bytes_read >= self->file_size;
-// }
-

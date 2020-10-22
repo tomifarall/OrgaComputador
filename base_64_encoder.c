@@ -14,6 +14,10 @@
 #define ERROR -1
 #define FILE_EOF -2
 
+/* *****************************************************************
+ *                   AUXILIARY FUNCTIONS                           *
+ * *****************************************************************/ 
+
 
 int b64_encode(unsigned char *src, unsigned char *dest){
 	if ((src == NULL) | (dest == NULL))
@@ -31,6 +35,10 @@ int b64_encode(unsigned char *src, unsigned char *dest){
 	dest[LEN_DEST] = '\0';
 	return SUCCESS;
 }
+
+/* *****************************************************************
+ *               BASE 64 DECODER FUNCTIONS                         *
+ * *****************************************************************/
 
 
 int base_64_encoder_init(base_64_encoder_t* self, char *file_to_encode, char *out_file){
