@@ -92,6 +92,7 @@ int base_64_decoder_decode(base_64_decoder_t* self) {
 		if (total_bytes_read != 0) {
 			for (int i = 0; i < BYTES_CHUNK; i++) {
             	if (!is_valid_b64_char(self->bytes_encoded[i])) {
+            		printf("ROMPIO ACAA\n");
                 	return ERROR;
         		}
 			}
@@ -100,7 +101,6 @@ int base_64_decoder_decode(base_64_decoder_t* self) {
 			fputs((char *) self->bytes_decoded, self->output_file);
 		}
     }
-    fputs("\n", self->output_file);
     return SUCCESS;
 }
 
@@ -115,19 +115,3 @@ int base_64_decoder_destroy(base_64_decoder_t* self) {
     free(self->bytes_decoded);
     return SUCCESS;
 }
-
-
-
-// int main(int argc, char const *argv[])
-// {
-
-//     base_64_decoder_t base_64_decoder;
-
-//     base_64_decoder_init(&base_64_decoder, "test.txt", "output.txt");
-
-//     base_64_decoder_decode(&base_64_decoder);
-
-//     base_64_decoder_destroy(&base_64_decoder);
-
-//     return 0;
-// }
