@@ -14,16 +14,17 @@
 
 void display_help(){
 	fprintf(stdout, "%s \n", "Usage:");
-	fprintf(stdout, "%s \n", "tp0 -h");
-	fprintf(stdout, "%s \n", "tp0 -V");
-	fprintf(stdout, "%s \n", "tp0 [options]");
-	fprintf(stdout, "%s \n", "-V, --version Print version and quit.");
-	fprintf(stdout, "%s \n", "-h, --help Print this information.");
-	fprintf(stdout, "%s \n", "-o, --output Path to output file.");
-	fprintf(stdout, "%s \n", "-i, --input Path to input file.");
-	fprintf(stdout, "%s \n", "-d, --decode Decode a base64-encoded file.");
+	fprintf(stdout, "   %s \n", "tp0 -h");
+	fprintf(stdout, "   %s \n", "tp0 -V");
+	fprintf(stdout, "   %s \n", "tp0 [options]");
+	fprintf(stdout, "%s \n", "Options:");
+	fprintf(stdout, "   %s \n", "-V, --version   Print version and quit.");
+	fprintf(stdout, "   %s \n", "-h, --help      Print this information.");
+	fprintf(stdout, "   %s \n", "-o, --output    Path to output file.");
+	fprintf(stdout, "   %s \n", "-i, --input     Path to input file.");
+	fprintf(stdout, "   %s \n", "-d, --decode    Decode a base64-encoded file.");
 	fprintf(stdout, "%s\n \n","Examples:");
-	fprintf(stdout, "%s\n", "     tp0 -i input.txt -o output.txt");
+	fprintf(stdout, "   %s\n", "     tp0 -i input.txt -o output.txt");
 }
 
 int main(int argc, char **argv){ 
